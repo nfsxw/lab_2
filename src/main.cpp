@@ -2,7 +2,26 @@
 #include <iostream>
 #include <string>
 
+/*
+class Parent {
+public:
+  virtual int question() = 0;
+};
+
+class Child : public Parent {
+private:
+  int question() override { return 42; }
+};
+
+void print(Parent &obj) {
+  int n = obj.question();
+  std::cout << n << std::endl;
+}
+*/
+
 int main() {
+  //Child obj;
+  //print(obj);
   std::string command;
   std::cout << "Enter 'test' to run tests, 'exit' to quit.\n";
 
