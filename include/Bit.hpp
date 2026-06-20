@@ -1,20 +1,21 @@
 #pragma once
 
 class Bit {
-	private:
-    		bool value;
-	public:
-		Bit() : value(false) {}
-		Bit(bool val) : value(val) {}
-    		Bit(int val) : value(val != 0) {}
+private:
+  bool value;
 
-		bool get() const { return value; }
+public:
+  Bit() : value(false) {}
+  Bit(bool val) : value(val) {}
+  Bit(int val) : value(val != 0) {}
 
-		Bit operator&(const Bit& other) const { return Bit(value && other.value); }
-    		Bit operator|(const Bit& other) const { return Bit(value || other.value); }
-    		Bit operator^(const Bit& other) const { return Bit(value != other.value); }
-    		Bit operator~() const { return Bit(!value); }
+  bool get() const { return value; }
 
-    		bool operator==(const Bit& other) const { return value == other.value; }
-    		bool operator!=(const Bit& other) const { return value != other.value; }
+  Bit operator&(const Bit &other) const { return Bit(value && other.value); }
+  Bit operator|(const Bit &other) const { return Bit(value || other.value); }
+  Bit operator^(const Bit &other) const { return Bit(value != other.value); }
+  Bit operator~() const { return Bit(!value); }
+
+  bool operator==(const Bit &other) const { return value == other.value; }
+  bool operator!=(const Bit &other) const { return value != other.value; }
 };

@@ -1,20 +1,25 @@
 #pragma once
 
-template <typename T>
-class Sequence {
-	public:
-		virtual ~Sequence() {};
+#include "ICollection.hpp"
 
-		virtual const T& getFirst() const = 0;
-		virtual const T& getLast() const = 0;
-		virtual const T& get(int index) const = 0;
-		virtual int getLength() const = 0;
+template <typename T> class Sequence : public ICollection<T> {
+public:
+  virtual ~Sequence() {}
 
-		virtual Sequence<T>* append(const T& item) = 0;
-		virtual Sequence<T>* prepend(const T& item) = 0;
-		virtual Sequence<T>* insertAt(const T& item, int index) = 0;
-		virtual Sequence<T>* remove(int index) = 0;
+  virtual const T &getFirst() const = 0;
+  virtual const T &getLast() const = 0;
+  virtual const T &get(int index) const = 0;
+  virtual int getLength() const = 0;
 
-		virtual Sequence<T>* getSubsequence(int start, int end) const = 0;
-		virtual Sequence<T>* concat(const Sequence<T>& other) const = 0;
+  virtual Sequence<T> *append(const T &item) = 0;
+  virtual Sequence<T> *prepend(const T &item) = 0;
+  virtual Sequence<T> *insertAt(const T &item, int index) = 0;
+  virtual Sequence<T> *remove(int index) = 0;
+  
+  virtual Sequence<T> *getSubsequence(int start, int end) const = 0;
+  virtual Sequence<T> *concat(const Sequence<T> &other) const = 0;
+
+  int GetCount() const override { return getLength(); }
+  const T &Get(int index) const override { return get(index); }
+  const T &operator[](int index) const { return get(index); }
 };
